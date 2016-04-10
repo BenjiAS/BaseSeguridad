@@ -1,0 +1,139 @@
+
+
+body {
+	display: block;
+	margin: 0;
+	padding: 0;
+	background: #ffcc00;
+	font-size: 16px;
+}
+
+footer {
+	bottom: 0;
+	/*border: 5px solid black;*/
+}
+
+header {
+	/*border: 5px solid black;*/
+	margin: 0;
+	padding: 0;
+	display: block;
+	box-sizing: border-box;
+	background: ;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 1.25em;
+	text-align: center;
+}
+
+div {
+	margin: 0;
+	/*display: flex;*/
+	height: auto;
+	width: auto;
+	box-sizing: border-box;
+}
+
+nav {
+	width: 100%;
+}
+
+ul {
+	list-style: none;
+	display: block;
+	padding: 0 2%;
+	vertical-align: middle;
+	text-align: center;
+}
+
+li {
+	display: inline;
+	padding: 0 1%;
+}
+
+a {
+	text-decoration: none;
+}
+
+h3 {
+	border-bottom: 2px solid black;
+	margin-bottom: 20px;
+}
+
+.logo {
+	width: 10em;
+}
+
+.mainDiv {
+	margin-top: 5%;
+}
+
+.mainContent {
+	height: auto;
+}
+
+.sideMenu {
+	background-color: white;
+	display: inline-block;
+	height: inherit;
+	width: 20%;
+	border-radius: 0 10px 10px 0;
+	position: fixed;
+	padding: 20px 10px;
+}
+
+.mainContent {
+	display: inline-block;
+	height: auto;
+	width: 80%;
+	margin-left: 20%; 
+	margin-bottom: 7.5%;
+}
+
+.registroForm {
+	display: block;
+	margin: 10px 15%;
+	color: white;
+	letter-spacing: .05em;
+	
+}
+
+label {
+	text-shadow: 1px 1px 4px black; 
+}
+
+#pageTitle {
+	width: 100%;
+	height: 4em;
+	text-align: center;
+}
+
+#buttonDiv {
+	text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
