@@ -4,7 +4,7 @@
 		//session_start();
 		require_once 'conexion.php';
 		$usuario = $_POST['usuario'];
-		$_SESSION["intentos"] = array('usuario' => $usuario, 'intentos' => );
+		//$_SESSION["intentos"] = array('usuario' => $usuario, 'intentos' => );
 		//echo "usuario: ".$usuario."<br>";
 		//$password = $_POST['contrasena'];
 		$password = crypt($_POST['contrasena'], 'benji');
