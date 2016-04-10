@@ -115,25 +115,12 @@
 			markup += '<div id="big-video-control-timer"></div>';
 			markup += '</div>';
 			markup += '</div>';
-			$('body').append(markup);
+			$('.screen').append(markup);
 
 			// hide until playVideo
 			$('#big-video-control-container').css('display','none');
 
 			// add events
-			$('#big-video-control-track').slider({
-				animate: true,
-				step: 0.01,
-				slide: function(e,ui) {
-					isSeeking = true;
-					$('#big-video-control-progress').css('width',(ui.value-0.16)+'%');
-					player.currentTime((ui.value/100)*player.duration());
-				},
-				stop:function(e,ui) {
-					isSeeking = false;
-					player.currentTime((ui.value/100)*player.duration());
-				}
-			});
 			$('#big-video-control-bar').click(function(e) {
 				player.currentTime((e.offsetX/$(this).width())*player.duration());
 			});
@@ -172,7 +159,7 @@
 
 		function setUpAutoPlay() {
 			player.play();
-			$('body').off('click',setUpAutoPlay);
+			$('.screen').off('click',setUpAutoPlay);
         }
 
 		function nextMedia() {
@@ -223,7 +210,7 @@
 		BigVideo.init = function() {
 			if (!isInitialized) {
 				// create player
-				$('body').prepend(wrap);
+				$('.screen').prepend(wrap);
 				var autoPlayString = BigVideo.settings.forceAutoplay ? 'autoplay' : '';
 				player = $('<video id="'+vidEl.substr(1)+'" class="video-js vjs-default-skin" preload="auto" data-setup="{}" '+autoPlayString+' webkit-playsinline></video>');
 				player.css('position','absolute');
@@ -239,7 +226,7 @@
 				isPlaying = false;
 
 				if (BigVideo.settings.forceAutoplay) {
-					$('body').on('click', setUpAutoPlay);
+					$('.screen').on('click', setUpAutoPlay);
 				}
 
 				$('#big-video-vid_flash_api')
