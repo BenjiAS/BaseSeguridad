@@ -14,6 +14,15 @@
 
 		<?php
 			session_start();
+			if(!isset($_SESSION['intentos'])){
+				$_SESSION['intentos'] = 0;
+				$_SESSION['intentosExiste'] = 0;
+			}
+			else {
+				/*echo "ya existe variable intentos <br>";
+				echo "variable intentos: ".$_SESSION['intentos'].'<br>';
+				$_SESSION['intentos'] = $_SESSION['intentos']+1;*/
+			}
 			//$_SESSION["intentos"] = array('usuario' =>, 'intentos' => );
 			// define variables and set to empty values
 			$usrErr = "";
