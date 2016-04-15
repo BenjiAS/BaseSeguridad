@@ -9,6 +9,7 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 		<link href='https://fonts.googleapis.com/css?family=Montserrat|Pacifico|Viga|Damion' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="css/style.css">
+		<script src='https://www.google.com/recaptcha/api.js'></script>
 	</head>
 	<body>
 
@@ -49,7 +50,7 @@
 			   }
 			   else {
 			   	// $_SESSION["loginErr"] = "";
-			   	require_once 'login.php';
+			   	require_once 'captcha.php';
 			   }
 			   
 			   if (empty($_POST["contrasena"])) {
@@ -77,6 +78,13 @@
 				<input id="contrasena" name="contrasena" class="form-control" type="password" placeholder="Contraseña">
 				<span class="error"> <?php echo $pswdErr;?></span>
 				<br><br>
+				<!--Captcha-->
+				<?php
+					if( $_SESSION['intentos'] > 2 || $_SESSION['intentosExiste'] > 2 ){
+						echo '<div id="formCaptcha"><div class="g-recaptcha" data-sitekey="6LclgR0TAAAAAMPbUx7zKG3_Bd4eDwdeLgUNEhWp"></div></div><br><br>';
+					}
+				?>
+
 				<div id="buttonDiv">
 					<button class="btn btn-primary" type="submit">Iniciar Sesión</button>
 				</div>
@@ -84,4 +92,19 @@
 		</div>
 	</body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
