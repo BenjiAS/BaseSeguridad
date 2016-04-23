@@ -184,6 +184,11 @@ h3 {
 	left: 50%;
 	transform: translateX(-50%);
 }
+
+.rc-anchor-content {
+	background-color: yellow;
+}
+
 .registroForm {
 	display: block;
 	margin: 10px 15%;

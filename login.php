@@ -83,7 +83,9 @@
 				$_SESSION['intentos'] = 0;
 				//RESTABLECER INTENTOS VAR DE SESION 'intentosExiste'
 				$_SESSION['intentosExiste'] = 0;
-				header("location: donaciones.html");
+				$_SESSION['varPrueba'] = "ESTA ES UNA PRUEBA DE SESION";
+				require_once 'navBarConSesion.php';
+				header("location: index.php");
 				echo "<br>";
 				echo 'Intentos con usuario inexistente: '.$_SESSION['intentos'];
 				echo "<br>";

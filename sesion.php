@@ -61,7 +61,7 @@
 
 		<div class='sesionHeader'>
 			<!--a href="index.html"><i id="homeBtn" class="fa fa-home"></i></a-->
-			<a href="index.html"><img class="logo" src="img/scc2.png"></a>
+			<a href="index.php"><img class="logo" src="img/scc2.png"></a>
 			<h2 id="bienvenido" class="text-center">Bienvenido!</h2>
 		</div>
 		<div class="container col-xs-4"></div>

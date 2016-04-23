@@ -13,14 +13,32 @@
 <body>
     <header class='indexHeader'>
         <nav>
-            <a href="index.html"><img class="logo" src="img/scc2.png"></a>
+            <a href="index.php"><img class="logo" src="img/scc2.png"></a>
             <ul id ='navBar' class='mainMenu'>
-                <li><a href="eventos.html">Eventos</a></li>
+             <?php
+                require_once 'conexion.php';
+
+
+                $query = 'SELECT * FROM opcionesNavegacion WHERE display = "1"';
+                $resQuery = $db->query($query);
+                //echo $resQuery->num_rows;
+
+                for ($i=0; $i < $resQuery->num_rows; $i++) { 
+                    $opcion = $resQuery->fetch_assoc();
+                    echo '<li><a href="'.$opcion['href'].'">'.$opcion['nombre'].'</a></li>';
+                }
+                
+
+                $db->close();
+
+            ?>
+            
+                <!--li><a href="eventos.html">Eventos</a></li>
                 <li><a href="acerca.html">¿Quiénes somos?</a></li>
                 <li><a href="patrocinadores.html">Patrocinadores</a></li>
                 <li><a href="donaciones.html">Donaciones</a></li>
                 <li><a href="contacto.html">Contacto</a></li>
-                <li><a href="sesion.php">Iniciar Sesión</a></li>
+                <li><a href="sesion.php">Iniciar Sesión</a></li-->
             </ul>
         </nav>
     </header>
@@ -92,11 +110,8 @@
     <!--script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script-->
     <script>
 
-        <?php
-                        
 
-        ?>
-        $("#navBar").append("<li><a href='eventos.html'>Text</a></li>");
+        //$("#navBar").append("<li><a href='eventos.html'>OPCION EXTRA</a></li>");
 
     </script>
 
