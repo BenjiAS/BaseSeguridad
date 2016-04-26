@@ -131,10 +131,11 @@ $sql = 'INSERT INTO usuario VALUES (?,?,?)';
 
 		<div class='sideMenu container col-xs-3'>
 			<h3>Menú Administrativo</h3>
-			<a href=""><p>Administración de Voluntarios</p></a>
-			<a href=""><p>Administración de Instituciones</p></a>
-			<a href=""><p>Administración de Patrocinadores</p></a>
-			<a href=""><p>Administración de Usuarios</p></a>
+			<a href="regVoluntario.php"><p>Administración de Voluntarios</p></a>
+			<a href="regInstitucion.php"><p>Administración de Instituciones</p></a>
+			<a href="regPatrocinador.php"><p>Administración de Patrocinadores</p></a>
+			<a href="regUsuario.php"><p>Administración de Usuarios</p></a>
+			<a href="regNino.php"><p>Administración de Niños</p></a>
 		</div>
 
 
