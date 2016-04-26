@@ -48,9 +48,17 @@ CREATE TABLE tablaLog(
 );
 
 CREATE TABLE patrocinador (
-nombrePatrocinador varchar(50),
-nombreContacto varchar(100),
-direccion varchar(150),
-email varchar(40),
-texto varchar(300)
+	nombrePatrocinador varchar(50),
+	nombreContacto varchar(100),
+	direccion varchar(150),
+	email varchar(40),
+	texto varchar(300)
+);
+
+CREATE TABLE opcionesNavegacion (
+  id int(11) NOT NULL AUTO_INCREMENT,
+  nombre varchar(40) NOT NULL,
+  href varchar(100) NOT NULL,
+  display char(1) NOT NULL,
+  PRIMARY KEY (id)
 );
