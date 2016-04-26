@@ -42,3 +42,11 @@ CREATE TABLE tablaLog(
     descripcion varchar(200) NOT NULL,
     CONSTRAINT tablaLog_pk PRIMARY KEY (id)
 );
+
+CREATE TABLE patrocinador (
+nombrePatrocinador varchar(50),
+nombreContacto varchar(100),
+direccion varchar(150),
+email varchar(40),
+texto varchar(300)
+);
