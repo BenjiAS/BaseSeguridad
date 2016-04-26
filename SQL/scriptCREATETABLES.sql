@@ -7,11 +7,15 @@ CREATE TABLE voluntario(
 	fechaDeNac date NOT NULL,
 	email varchar (100) NOT NULL,
 	celular char (10),
+    telefono int,
     escolaridad varchar (5) NOT NULL,
     semestre char(1),
     talla varchar(3),
 	CONSTRAINT voluntario_pk PRIMARY KEY (matricula)
 );
+
+
+
 
 CREATE TABLE usuario(
     matricula varchar(10) NOT NULL,
