@@ -28,13 +28,13 @@
 
 		//SI EL USUARIO INGRESADO NO EXISTE (consulta regresa vacío), SE SUMA UNO A LA VARIABLE DE SESIÓN "intentos"
 		if($passwordBD == ""){
-			echo "<br>";
-			echo "No existe usuario";
-			echo "<br>";
+			// echo "<br>";
+			// echo "No existe usuario";
+			// echo "<br>";
 			$_SESSION['intentos'] = $_SESSION['intentos'] + 1;
-			echo 'Intentos con usuario inexistente: '.$_SESSION['intentos'];
-			echo "<br>";
-			echo 'Intentos con usuario existente: '.$_SESSION['intentosExiste'];
+			// echo 'Intentos con usuario inexistente: '.$_SESSION['intentos'];
+			// echo "<br>";
+			// echo 'Intentos con usuario existente: '.$_SESSION['intentosExiste'];
 			//get IP
 			//echo "<br>";
 			//echo 'ip: '.$_SERVER['REMOTE_ADDR'];
@@ -42,7 +42,7 @@
 		//SI EL USUARIO SÍ EXISTE
 		else {
 			//echo "<br>";
-			printf('%s es la contraseña en la bd.', $passwordBD);
+			// printf('%s es la contraseña en la bd.', $passwordBD);
 			//echo "<br>";
 			//printf('%s es la contraseña ingresada.', $passwordInput);
 
@@ -64,10 +64,10 @@
 				$_SESSION['intentosExiste'] = $intentosBD;
 				$_SESSION['intentos'] = $_SESSION['intentos'] + 1;
 
-				echo "<br>";
-				echo 'Intentos con usuario inexistente: '.$_SESSION['intentos'];
-				echo "<br>";
-				echo 'Intentos con usuario existente: '.$_SESSION['intentosExiste'];
+				// echo "<br>";
+				// echo 'Intentos con usuario inexistente: '.$_SESSION['intentos'];
+				// echo "<br>";
+				// echo 'Intentos con usuario existente: '.$_SESSION['intentosExiste'];
 
 				$_SESSION["loginErr"] = "Usuario o Contraseña incorrectos";
 				header("location: sesion.php?msg=failed");
@@ -86,10 +86,10 @@
 				$_SESSION['varPrueba'] = "ESTA ES UNA PRUEBA DE SESION";
 				require_once 'navBarConSesion.php';
 				header("location: index.php");
-				echo "<br>";
-				echo 'Intentos con usuario inexistente: '.$_SESSION['intentos'];
-				echo "<br>";
-				echo 'Intentos con usuario existente: '.$_SESSION['intentosExiste'];
+				// echo "<br>";
+				// echo 'Intentos con usuario inexistente: '.$_SESSION['intentos'];
+				// echo "<br>";
+				// echo 'Intentos con usuario existente: '.$_SESSION['intentosExiste'];
 			}
 		}
 
