@@ -12,6 +12,7 @@ CREATE TABLE voluntario(
     talla varchar(3),
 	CONSTRAINT voluntario_pk PRIMARY KEY (matricula)
 );
+ALTER TABLE voluntario ADD COLUMN telefono int
 
 CREATE TABLE usuario(
     matricula varchar(10) NOT NULL,
@@ -41,4 +42,20 @@ CREATE TABLE tablaLog(
     tipoDeEvento varchar(15) NOT NULL,
     descripcion varchar(200) NOT NULL,
     CONSTRAINT tablaLog_pk PRIMARY KEY (id)
+);
+
+CREATE TABLE patrocinador (
+nombrePatrocinador varchar(50),
+nombreContacto varchar(100),
+direccion varchar(150),
+email varchar(40),
+texto varchar(300)
+);
+
+CREATE TABLE `opcionesNavegacion` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(40) NOT NULL,
+  `href` varchar(100) NOT NULL,
+  `display` char(1) NOT NULL,
+  PRIMARY KEY (`id`)
 );

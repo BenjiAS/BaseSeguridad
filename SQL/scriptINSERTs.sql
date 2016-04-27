@@ -50,5 +50,12 @@ INSERT INTO usuarioPermiso (id, matricula) VALUES (11,'A01233107');
 
 SELECT * FROM usuarioPermiso;
 
-
+INSERT INTO opcionesNavegacion VALUES (1, 'Eventos', 'eventos.html',1);
+INSERT INTO opcionesNavegacion VALUES (2, '&iquestQui&eacutenes somos?', 'acerca.html',1);
+INSERT INTO opcionesNavegacion VALUES (3, 'Patrocinadores', 'patrocinadores.html',1);
+INSERT INTO opcionesNavegacion VALUES (4, 'Donaciones', 'donaciones.html',1);
+INSERT INTO opcionesNavegacion VALUES (5, 'Contacto', 'contacto.html',1);
+INSERT INTO opcionesNavegacion VALUES (6, 'Iniciar Sesi&oacuten', 'sesion.php',1);
+INSERT INTO opcionesNavegacion VALUES (7, 'Cerrar Sesi&oacuten', '',0);
+INSERT INTO opcionesNavegacion VALUES (8, 'Administraci&oacuten', 'regVoluntario.html',0);
 
