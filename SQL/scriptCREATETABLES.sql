@@ -7,6 +7,7 @@ CREATE TABLE voluntario(
 	fechaDeNac date NOT NULL,
 	email varchar (100) NOT NULL,
 	celular char (10),
+    telefono int,
     escolaridad varchar (5) NOT NULL,
     semestre char(1),
     talla varchar(3),
@@ -45,6 +46,7 @@ CREATE TABLE tablaLog(
 );
 
 CREATE TABLE patrocinador (
+<<<<<<< HEAD
 nombrePatrocinador varchar(50),
 nombreContacto varchar(100),
 direccion varchar(150),
@@ -59,3 +61,34 @@ CREATE TABLE `opcionesNavegacion` (
   `display` char(1) NOT NULL,
   PRIMARY KEY (`id`)
 );
+=======
+	nombrePatrocinador varchar(50),
+	nombreContacto varchar(100),
+	direccion varchar(150),
+	email varchar(40),
+	texto varchar(300)
+);
+
+CREATE TABLE opcionesNavegacion (
+	id int(11) NOT NULL AUTO_INCREMENT,
+	nombre varchar(40) NOT NULL,
+	href varchar(100) NOT NULL,
+	display char(1) NOT NULL,
+	PRIMARY KEY (id)
+);
+
+CREATE TABLE opcionesAdministracion (
+	id int(11) NOT NULL AUTO_INCREMENT,
+	nombre varchar(40) NOT NULL,
+	href varchar(100) NOT NULL,
+	permiso char(1) NOT NULL,
+	PRIMARY KEY (id)
+);
+
+
+
+
+
+
+
+>>>>>>> 82bbadbd665cdd0a784c0949ab12e262adb9ad6d
