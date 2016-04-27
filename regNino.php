@@ -45,7 +45,7 @@
 	<div class='mainDiv'>
 
 		<div id="pageTitle">
-			<h1>Registro de Usuario</h1>
+			<h1>Registro de Niño</h1>
 		</div>
 
 		<div class='sideMenu container col-xs-3'>
@@ -60,38 +60,119 @@
 
 		<div class='mainContent'>
 			<div class='registroForm container col-xs-6'>
-				<form action="php/registroVoluntarios.php"  role="form">
+				<form action="php/registroNino.php"  role="form">
 					<div class="container col-xs-12">
-						<label>Matrícula: </label>
+					<!-- <h3 class="error"> <?php echo $nombreVoluntarioErr;?></h3> -->
+						<label for="nombreNino">Nombre(s): </label>
 						<br>
-						<input id="matriculaUsuario" name="matriculaUsuario" class="form-control" type="text" placeholder="i.e. A01231234">
+						<input id="nombresNino" name="nombreNino" <?php if (isset($_POST['nombreNino'])) echo 'value="'.$_POST['nombreNino'].'"';?> class="form-control" type="text" placeholder="i.e. Juan Ricardo"
+						value= "<?php echo htmlspecialchars($nombreNino);?>">
+						<span class="error"><?php echo $nombreNinoErr;?></span>
 						<br><br>
 					</div>
 
 					<div class="container col-xs-12">
-						<label>Tipo: </label>
+					<!-- <h3 class="error"> <?php echo $apellidoPaternoErr;?></h3> -->
+						<label for="apellidoPaterno">Apellido Paterno: </label>
 						<br>
-						<select>
-								<option value="admin">Admin</option>
-								<option value="mesa" selected>Mesa</option>
+						<input id="apellidoPatNino" name="apellidoPaterno" <?php if (isset($_POST['apellidoPaterno'])) echo 'value="'.$_POST['apellidoPaterno'].'"';?>  class="form-control" type="text" placeholder="i.e. Hernández"
+						value= "<?php echo htmlspecialchars($apellidoPaterno);?>">
+						<span class="error"><?php echo $apellidoPaternoErr;?></span>
+						<br><br>
+					</div>
+
+					<div class="container col-xs-12">
+					<!-- <h3 class="error"> <?php echo $apellidoMaternoErr;?></h3> -->
+						<label for="apellidoMaterno">Apellido Materno: </label>
+						<br>
+						<input id="apellidoMatNino" name="apellidoMaterno" <?php if (isset($_POST['apellidoMaterno'])) echo 'value="'.$_POST['apellidoMaterno'].'"';?>  class="form-control" type="text" placeholder="i.e. López"
+						value= "<?php echo htmlspecialchars($apellidoMaterno);?>">
+						<span class="error"><?php echo $apellidoMaternoErr;?></span>
+						<br><br>
+					</div>
+
+			<!------------------------------------------------------------------------------>
+				
+					<div class="container col-xs-12">
+					<!-- 	<h3 class="error"> <?php echo $fechaDeNacErr;?></h3> -->
+						<label for="fechaNac">Fecha de Nacimiento: </label>
+						<br>
+
+						<div class="container col-xs-4">
+							<select>
+								<option value="-" selected>Día</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value=""></option>
 							</select>
-						<br><br>
-					</div>
+						</div>
+
+						<div class="container col-xs-4">
+							<select>
+								<option value="-" selected>Mes</option>
+								<option value="Ene">Enero</option>
+								<option value="Feb">Febrero</option>
+								<option value="Mar">Marzo</option>
+								<option value="Abr">Abril</option>
+							</select>
+						</div>
+
+						<div class="container col-xs-4">
+							<select>
+								<option value="-" selected>Año</option>
+								<option value="1995">1995</option>
+								<option value="1996">1996</option>
+								<option value="1997">1997</option>
+								<option value="1998">1998</option>
+							</select>
+						</div>
+						
+						<br>
+						<span class="error"><?php echo $fechaDeNacErr;?></span>
+					</div>	
+
+
+
+<!------------------------------------------------------------------------------>
+
 
 					<div class="container col-xs-12">
-						<label>Contraseña: </label>
+					<!-- 	<h3 class="error"> <?php echo $fechaDeNacErr;?></h3> -->
+						<label for="discapacidad">Discapacidad: </label>
 						<br>
-						<input id="contraseñaUsuario" name="contraseñaUsuario" class="form-control" type="text">
-						<br><br>
-					</div>
+
+						<div class="container col-xs-4">
+							<select>
+								<option value="-" selected>--Seleccione una--</option>
+								<option value="1">Down</option>
+								<option value="2">Ceguera</option>
+								<option value="3">Silente</option>
+								<option value="4">Autismo</option>
+							</select>
+						</div>
+						<br>
+						<span class="error"><?php echo $fechaDeNacErr;?></span>
+					</div>	
 
 					<div class="container col-xs-12">
-						<label id="matriculaVoluntario">Confirme Contraseña: </label>
+					<!-- 	<h3 class="error"> <?php echo $fechaDeNacErr;?></h3> -->
+						<label for="genero">Género: </label>
 						<br>
-						<input id="confContraseñaUsuario" name="confContraseñaUsuario" class="form-control" type="text" >
-						<br><br>
-					</div>
-					<div id="buttonDiv"><button class="btn btn-primary" type="submit">Registrar Voluntario</button></div>
+
+						<div class="container col-xs-4">
+							<select>
+								<option value="-" selected>--Seleccione uno--</option>
+								<option value="f">Femenino</option>
+								<option value="m">Masculino</option>
+							</select>
+						</div>
+						<br>
+						<span class="error"><?php echo $fechaDeNacErr;?></span>
+					</div>	
+
+					<div id="buttonDiv"><button class="btn btn-primary" type="submit">Registrar Niño</button></div>
 				</form>
 			</div>
 		</div>

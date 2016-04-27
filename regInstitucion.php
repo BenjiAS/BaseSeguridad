@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title>SCC - Regisro Niño</title>
+	<title>SCC - Regisro Institución</title>
 	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<link rel='stylesheet' href='css/style.css'>
@@ -45,7 +45,7 @@
 	<div class='mainDiv'>
 
 		<div id="pageTitle">
-			<h1>Registro de Usuario</h1>
+			<h1>Registro de Institución</h1>
 		</div>
 
 		<div class='sideMenu container col-xs-3'>
@@ -60,38 +60,48 @@
 
 		<div class='mainContent'>
 			<div class='registroForm container col-xs-6'>
-				<form action="php/registroVoluntarios.php"  role="form">
+				<form action="php/registroInstitucion.php"  role="form">
 					<div class="container col-xs-12">
-						<label>Matrícula: </label>
+						<label>Nombre: </label>
 						<br>
-						<input id="matriculaUsuario" name="matriculaUsuario" class="form-control" type="text" placeholder="i.e. A01231234">
+						<input id="nombre" name="nombreInstitucion" class="form-control" type="text" placeholder="i.e. Ver Contigo">
 						<br><br>
 					</div>
 
 					<div class="container col-xs-12">
-						<label>Tipo: </label>
+						<!-- <h3 class="error"> <?php echo $tallaErr;?></h3> -->
+						<label for="semestre">Dirección:</label>
 						<br>
-						<select>
-								<option value="admin">Admin</option>
-								<option value="mesa" selected>Mesa</option>
-							</select>
+						<textarea id="direccion" name="direccion" <?php if (isset($_POST['direccion'])) echo 'value="'.$_POST['direccion'].'"';?>  class="form-control" type="text" placeholder="..."
+						value= "<?php echo htmlspecialchars($direccion);?>" >
+						</textarea>
+						<!-- <span class="error"><?php echo $textErr;?></span> -->
 						<br><br>
 					</div>
 
 					<div class="container col-xs-12">
-						<label>Contraseña: </label>
+						<label>Contacto: </label>
 						<br>
-						<input id="contraseñaUsuario" name="contraseñaUsuario" class="form-control" type="text">
+						<input id="contacto" name="contactoInstitucion" class="form-control" type="text" placeholder="i.e. Dora Gómez">
 						<br><br>
 					</div>
 
-					<div class="container col-xs-12">
-						<label id="matriculaVoluntario">Confirme Contraseña: </label>
+					<div class="container col-xs-6">
+					<!-- <h3 class="error"> <?php echo $telefonoErr;?></h3> -->
+						<label for="telefono">Teléfono: </label>
 						<br>
-						<input id="confContraseñaUsuario" name="confContraseñaUsuario" class="form-control" type="text" >
+						<input id="telefonoInstitucion" name="telefonoInstitucion" 
+							<?php 
+								if (isset($_POST['telefonoInstitucion'])) 
+									echo 'value="'.$_POST['telefonoInstitucion'].'"';
+							?> 
+							class="form-control" type="text" placeholder="i.e. 7567890" 
+							value= "<?php echo htmlspecialchars($telefonoInstitucion);?>">
+						<span class="error"><?php echo $telefonoErr;?></span>
 						<br><br>
 					</div>
-					<div id="buttonDiv"><button class="btn btn-primary" type="submit">Registrar Voluntario</button></div>
+
+					<div id="buttonDiv"><button class="btn btn-primary" type="submit">Registrar Institución</button></div>
 				</form>
 			</div>
 		</div>

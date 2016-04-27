@@ -56,9 +56,10 @@ INSERT INTO opcionesNavegacion VALUES (2, '&iquestQui&eacutenes somos?', 'acerca
 INSERT INTO opcionesNavegacion VALUES (3, 'Patrocinadores', 'patrocinadores.html', '1');
 INSERT INTO opcionesNavegacion VALUES (4, 'Donaciones', 'donaciones.html', '1');
 INSERT INTO opcionesNavegacion VALUES (5, 'Contacto', 'contacto.html', '1');
-INSERT INTO opcionesNavegacion VALUES (6, 'Iniciar Sesi&oacuten', 'sesion.php', '1');
-INSERT INTO opcionesNavegacion VALUES (7, 'Cerrar Sesi&oacuten', 'cerrarSesion.php', '0');
-INSERT INTO opcionesNavegacion VALUES (8, 'Administraci&oacuten', 'regVoluntario.php', '0');
+INSERT INTO opcionesNavegacion VALUES (6, 'Administraci&oacuten', 'regVoluntario.php', '0');
+INSERT INTO opcionesNavegacion VALUES (7, 'Iniciar Sesi&oacuten', 'sesion.php', '1');
+INSERT INTO opcionesNavegacion VALUES (8, 'Cerrar Sesi&oacuten', 'cerrarSesion.php', '0');
+
 
 
 SELECT * FROM opcionesNavegacion;

@@ -159,7 +159,7 @@ $sql = 'INSERT INTO voluntario VALUES (?,?,?,?,?,?,?,?,?,?,?)';
 		
 		//printf('%s es la contraseña ingresada', $password);
 		$prep_query->close();
-		$db->close();
+		//$db->close();
  
 
 
@@ -171,22 +171,22 @@ $sql = 'INSERT INTO voluntario VALUES (?,?,?,?,?,?,?,?,?,?,?)';
 			<a href="index.php"><img class="logo" src="img/scc2.png"></a>
             <ul class='mainMenu'>
                  <?php
-                require_once 'conexion.php';
+	                require_once 'conexion.php';
 
 
-                $query = 'SELECT * FROM opcionesNavegacion WHERE display = "1"';
-                $resQuery = $db->query($query);
-                //echo $resQuery->num_rows;
+	                $query = 'SELECT * FROM opcionesNavegacion WHERE display = "1"';
+	                $resQuery = $db->query($query);
+	                //echo $resQuery->num_rows;
 
 
-                for ($i=0; $i < $resQuery->num_rows; $i++) { 
-                    $opcion = $resQuery->fetch_assoc();
-                    echo '<li><a href="'.$opcion['href'].'">'.$opcion['nombre'].'</a></li>';
-                }
+	                for ($i=0; $i < $resQuery->num_rows; $i++) { 
+	                    $opcion = $resQuery->fetch_assoc();
+	                    echo '<li><a href="'.$opcion['href'].'">'.$opcion['nombre'].'</a></li>';
+	                }
 
-                $db->close();
+	                $db->close();
 
-            ?>
+	            ?>
             
                 <!--li><a href="eventos.html">Eventos</a></li>
                 <li><a href="acerca.html">¿Quiénes somos?</a></li>
@@ -198,7 +198,7 @@ $sql = 'INSERT INTO voluntario VALUES (?,?,?,?,?,?,?,?,?,?,?)';
 		</nav>
 	</header>
 		<div id="pageTitle">
-			<label id="registroDeVoluntario">Registro de voluntario </label>
+			<h1 id="registroDeVoluntario">Registro de Voluntario </h1>
 			<br>
 			<!-- <h2 id="bienvenido">Registro de Voluntario</h2> -->
 		</div>

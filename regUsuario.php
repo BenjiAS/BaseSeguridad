@@ -28,7 +28,7 @@
                     echo '<li><a href="'.$opcion['href'].'">'.$opcion['nombre'].'</a></li>';
                 }
 
-                $db->close();
+                //$db->close();
 
             ?>
             
@@ -88,7 +88,7 @@ function test_input($data) {
    return $data;
 }
 
-$sql = 'INSERT INTO usuario VALUES (?,?,?)';
+$sql = 'INSERT INTO usuario VALUES (?,?,?, 0)';
 		$prep_query= $db->prepare($sql);
 		$prep_query->bind_param('sss', $matriculaUsuario, $contrasena, $confcontrasena);
 		$prep_query->execute();
@@ -145,9 +145,9 @@ $sql = 'INSERT INTO usuario VALUES (?,?,?)';
 					<div class="container col-xs-12">
 						<label>Matrícula: </label>
 						<br>
-						<input id="matriculaUsuario" name="matriculaUsuario" <?php if (isset($_POST['matriculaUsuario'])) echo 'value="'.$_POST['matriculaUsuario'].'"';?> class="form-control" type="text" placeholder="A0..."
+						<input id="matriculaUsuario" name="matriculaUsuario" <?php if (isset($_POST['matriculaUsuario'])) echo 'value="'.$_POST['matriculaUsuario'].'"';?> class="form-control" type="text" placeholder="A01231234"
 						value= "<?php echo htmlspecialchars($matriculaUsuario);?>" > 
-						<span class="error"><?php echo $nombreUsuarioErr;?></span>
+						<span class="error"><?php echo $matriculaUsuarioErr;?></span>
 
 						<br><br>
 					</div>
@@ -165,7 +165,7 @@ $sql = 'INSERT INTO usuario VALUES (?,?,?)';
 					<div class="container col-xs-12">
 						<label>Contraseña: </label>
 						<br>
-						<input id="contrasena" name="contrasena" <?php if (isset($_POST['contrasena'])) echo 'value="'.$_POST['contrasena'].'"';?> class="form-control" type="text" 
+						<input id="contrasena" name="contrasena" <?php if (isset($_POST['contrasena'])) echo 'value="'.$_POST['contrasena'].'"';?> class="form-control" type="password" 
 						value= "<?php echo htmlspecialchars($contrasena);?>" > 
 						<span class="error"><?php echo $contrasenaErr;?></span>
 						<br><br>
@@ -174,7 +174,7 @@ $sql = 'INSERT INTO usuario VALUES (?,?,?)';
 					<div class="container col-xs-12">
 						<label id="matriculaVoluntario">Confirmar Contraseña: </label>
 						<br>
-						<input id="confcontrasena" name="confcontrasena" <?php if (isset($_POST['confcontrasena'])) echo 'value="'.$_POST['confcontrasena'].'"';?> class="form-control" type="text" 
+						<input id="confcontrasena" name="confcontrasena" <?php if (isset($_POST['confcontrasena'])) echo 'value="'.$_POST['confcontrasena'].'"';?> class="form-control" type="password" 
 						value= "<?php echo htmlspecialchars($confcontrasena);?>" > 
 						<span class="error"><?php echo $confcontrasenaErr;?></span>
 						<br><br>

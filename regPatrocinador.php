@@ -103,7 +103,7 @@ $sql = 'INSERT INTO patrocinador VALUES (?,?,?,?,?)';
 		
 		//printf('%s es la contraseña ingresada', $password);
 		$prep_query->close();
-		$db->close();
+		//$db->close();
  
 
 
@@ -142,7 +142,7 @@ $sql = 'INSERT INTO patrocinador VALUES (?,?,?,?,?)';
 		</nav>
 	</header>
 		<div id="pageTitle">
-			<label id="registroDeVoluntario">Registro de Patrocinador </label>
+			<h1 id="registroDeVoluntario">Registro de Patrocinador </h1>
 			<br>
 			<!-- <h2 id="bienvenido">Registro de patrocinador</h2> -->
 		</div>

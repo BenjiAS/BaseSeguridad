@@ -14,9 +14,6 @@ CREATE TABLE voluntario(
 	CONSTRAINT voluntario_pk PRIMARY KEY (matricula)
 );
 
-
-
-
 CREATE TABLE usuario(
     matricula varchar(10) NOT NULL,
     password varchar(128) NOT NULL,
@@ -56,9 +53,24 @@ CREATE TABLE patrocinador (
 );
 
 CREATE TABLE opcionesNavegacion (
-  id int(11) NOT NULL AUTO_INCREMENT,
-  nombre varchar(40) NOT NULL,
-  href varchar(100) NOT NULL,
-  display char(1) NOT NULL,
-  PRIMARY KEY (id)
+	id int(11) NOT NULL AUTO_INCREMENT,
+	nombre varchar(40) NOT NULL,
+	href varchar(100) NOT NULL,
+	display char(1) NOT NULL,
+	PRIMARY KEY (id)
 );
+
+CREATE TABLE opcionesAdministracion (
+	id int(11) NOT NULL AUTO_INCREMENT,
+	nombre varchar(40) NOT NULL,
+	href varchar(100) NOT NULL,
+	permiso char(1) NOT NULL,
+	PRIMARY KEY (id)
+);
+
+
+
+
+
+
+
