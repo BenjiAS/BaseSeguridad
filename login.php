@@ -19,6 +19,22 @@
 		$prep_query->fetch();
 
 		//printf('%s es la contraseña ingresada', $password);
+
+		//session_start();
+
+
+//BENJI ESTÁ USANDO ESTO PARA LOS PERMISOS--------------------------------------------------------------
+		$queryPermisos = 'SELECT id FROM usuarioPermiso WHERE matricula = ? ;';
+		$prep_query2= $db->prepare($queryPermisos);
+		// $prep_query2->bind_param('s', $usuario);
+		// $prep_query2->execute();
+		// $prep_query2->bind_result($permiso);
+		// $prep_query2->fetch();
+
+
+		$_SESSION['permisos'] = array();
+
+
 		$prep_query->close();
 		
 

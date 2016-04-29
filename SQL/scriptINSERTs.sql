@@ -25,7 +25,7 @@ INSERT INTO Voluntario VALUES ('A01231278','Alejandra', 'Muñoz','Villalobos', '
     
 -- SELECT * FROM voluntario;
 -- insert usuario
-INSERT INTO usuario (matricula, password, tipo) VALUES ('A01233188','bey9c6C7qGtu2','Admin'); -- Se loginea con lily123
+INSERT INTO usuario (matricula, password, tipo) VALUES ('A01233188','lily123','Admin');
 INSERT INTO usuario (matricula, password, tipo) VALUES ('A01233107','benji123','Mesa');
 
 -- insert Usuariopermiso
@@ -48,7 +48,20 @@ INSERT INTO usuarioPermiso (id, matricula) VALUES (8,'A01233107');
 INSERT INTO usuarioPermiso (id, matricula) VALUES (10,'A01233107');
 INSERT INTO usuarioPermiso (id, matricula) VALUES (11,'A01233107');
 
-SELECT * FROM usuarioPermiso;
+-- SELECT * FROM usuarioPermiso;
 
+-- insert opcionesNavegacion
+INSERT INTO opcionesNavegacion VALUES (1, 'Eventos', 'eventos.html', '1');
+INSERT INTO opcionesNavegacion VALUES (2, '&iquestQui&eacutenes somos?', 'acerca.html', '1');
+INSERT INTO opcionesNavegacion VALUES (3, 'Patrocinadores', 'patrocinadores.html', '1');
+INSERT INTO opcionesNavegacion VALUES (4, 'Donaciones', 'donaciones.html', '1');
+INSERT INTO opcionesNavegacion VALUES (5, 'Contacto', 'contacto.html', '1');
+INSERT INTO opcionesNavegacion VALUES (6, 'Administraci&oacuten', 'regVoluntario.php', '0');
+INSERT INTO opcionesNavegacion VALUES (7, 'Iniciar Sesi&oacuten', 'sesion.php', '1');
+INSERT INTO opcionesNavegacion VALUES (8, 'Cerrar Sesi&oacuten', 'cerrarSesion.php', '0');
+
+
+
+SELECT * FROM opcionesNavegacion;
 
 
