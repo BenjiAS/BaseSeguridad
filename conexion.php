@@ -7,7 +7,7 @@
 	}
 	//SI FUNCIONA LO DE GIT PUSH Y PULL
 	else {
-		//printf('Sí se conectó');
+		printf('Sí se conectó');
 		//echo "<br>";
 	}	
 

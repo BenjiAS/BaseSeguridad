@@ -18,7 +18,7 @@
 	$nombrepatrocinadorErr = "";
 	$nombreContactoErr = "";
 	$direccionErr = "";
-	$telefonoErr = ""; // AGREGARLO EN LO DEMAS!!!!
+	$telefonoErr = "";
 	$emailpatrocinadorErr = "";
 	$textErr = "";
 	

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+	<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -17,6 +17,7 @@
 <<<<<<< HEAD
 =======
 
+
 	$nombreVoluntarioErr = "";
 	$apellidoPaternoErr = "";
 	$apellidoMaternoErr = "";
@@ -31,25 +32,25 @@
 	
 	
 
-	if ($_SERVER["REQUEST_METHOD"]=="POST"){
-	$nombreVoluntario = trim(filter_input(INPUT_POST,"nombreVoluntario",FILTER_SANITIZE_STRING));
-	// echo $nombreVoluntario;
-	$apellidoPaterno = trim(filter_input(INPUT_POST,"apellidoPaterno",FILTER_SANITIZE_STRING));
-	$apellidoMaterno = trim(filter_input(INPUT_POST,"apellidoMaterno",FILTER_SANITIZE_STRING));
-	$matricula = trim(filter_input(INPUT_POST,"matricula",FILTER_SANITIZE_STRING));
-	$celular = trim(filter_input(INPUT_POST,"celular",FILTER_SANITIZE_NUMBER_INT));
-	$telefono = trim(filter_input(INPUT_POST,"telefono",FILTER_SANITIZE_NUMBER_INT));
-	$carrera = trim(filter_input(INPUT_POST,"carrera",FILTER_SANITIZE_STRING));
-	$semestre = trim(filter_input(INPUT_POST,"semestre",FILTER_SANITIZE_NUMBER_INT));
-	$email = trim(filter_input(INPUT_POST,"email",FILTER_SANITIZE_EMAIL));
-	$talla = trim(filter_input(INPUT_POST,"talla",FILTER_SANITIZE_STRING));	
-	$ano = trim(filter_input(INPUT_POST,"ano",FILTER_SANITIZE_NUMBER_INT));
-	$mes = trim(filter_input(INPUT_POST,"mes",FILTER_SANITIZE_NUMBER_INT));
-	$dia = trim(filter_input(INPUT_POST,"dia",FILTER_SANITIZE_NUMBER_INT));
+	// if ($_SERVER["REQUEST_METHOD"]=="POST"){
+	// $nombreVoluntario = trim(filter_input(INPUT_POST,"nombreVoluntario",FILTER_SANITIZE_STRING));
+	// // echo $nombreVoluntario;
+	// $apellidoPaterno = trim(filter_input(INPUT_POST,"apellidoPaterno",FILTER_SANITIZE_STRING));
+	// $apellidoMaterno = trim(filter_input(INPUT_POST,"apellidoMaterno",FILTER_SANITIZE_STRING));
+	// $matricula = trim(filter_input(INPUT_POST,"matricula",FILTER_SANITIZE_STRING));
+	// $celular = trim(filter_input(INPUT_POST,"celular",FILTER_SANITIZE_NUMBER_INT));
+	// $telefono = trim(filter_input(INPUT_POST,"telefono",FILTER_SANITIZE_NUMBER_INT));
+	// $carrera = trim(filter_input(INPUT_POST,"carrera",FILTER_SANITIZE_STRING));
+	// $semestre = trim(filter_input(INPUT_POST,"semestre",FILTER_SANITIZE_NUMBER_INT));
+	// $email = trim(filter_input(INPUT_POST,"email",FILTER_SANITIZE_EMAIL));
+	// $talla = trim(filter_input(INPUT_POST,"talla",FILTER_SANITIZE_STRING));	
+	// $ano = trim(filter_input(INPUT_POST,"ano",FILTER_SANITIZE_NUMBER_INT));
+	// $mes = trim(filter_input(INPUT_POST,"mes",FILTER_SANITIZE_NUMBER_INT));
+	// $dia = trim(filter_input(INPUT_POST,"dia",FILTER_SANITIZE_NUMBER_INT));
 
-	$fechaDeNac = 	$ano.'-'.$mes.'-'.$dia;
+	// $fechaDeNac = 	$ano.'-'.$mes.'-'.$dia;
 
-		}
+	// 	}
 	
 	$nombreVoluntario = $apellidoPaterno = $apellidoMaterno = $matricula = $celular = 
 	$telefono = $carrera = $semestre = $email = $talla = $ano = $mes = $dia = "";
@@ -59,9 +60,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   if (empty($_POST["nombreVoluntario"])) {
     $nombreVoluntarioErr = "Ingresa nombre";
+    // echo $nombreVoluntario;
     $valid = false;
   } else {
     $nombreVoluntario = test_input($_POST["nombreVoluntario"]);
+    echo $nombreVoluntario;
   }
 
   if (empty($_POST["apellidoPaterno"])) {
@@ -143,10 +146,10 @@ function test_input($data) {
    return $data;
 }
 
-$sql = 'INSERT INTO voluntario VALUES (?,?,?,?,?,?,?,?,?,?,?)';
-		$prep_query= $db->prepare($sql);
-		$prep_query->bind_param('ssssisisiii', $matricula,$nombreVoluntario,$apellidoPaterno,$apellidoMaterno,$fechaDeNac,$email,$celular,$carrera,$semestre,$talla,$telefono);
-		$prep_query->execute();
+$sql = 'INSERT INTO voluntario VALUES ("'.$matricula.'",'.$nombreVoluntario.','.$apellidoPaterno.','.$apellidoMaterno','.$fechaDeNac','.$email.','.$celular.','.$carrera.','.$semestre.','.$talla.','.$telefono.')';
+		// $prep_query= $db->query($sql);
+		// // $prep_query->bind_param('ssssisisiii', $matricula,$nombreVoluntario,$apellidoPaterno,$apellidoMaterno,$fechaDeNac,$email,$celular,$carrera,$semestre,$talla,$telefono);
+		// $prep_query->execute();
 		// $prep_query->bind_result($passwordInput);
 		$prep_query->fetch();
 
@@ -161,20 +164,36 @@ $sql = 'INSERT INTO voluntario VALUES (?,?,?,?,?,?,?,?,?,?,?)';
 		
 		//printf('%s es la contraseña ingresada', $password);
 		$prep_query->close();
-		//$db->close();
+		// $db->close();
  
 
 
 ?>
+
+
 
 <body>
 	<header>
 		<nav>
 			<a href="index.php"><img class="logo" src="img/scc2.png"></a>
             <ul class='mainMenu'>
+                 
+
+<body>
+	<header>
+	
+	</header>
+		<div id="pageTitle">
+			
+
+	          <ul class='mainMenu'>
                  <?php
+<<<<<<< HEAD
 	                require_once 'conexion.php';
 >>>>>>> 82bbadbd665cdd0a784c0949ab12e262adb9ad6d
+=======
+                require_once 'conexion.php';
+>>>>>>> e1a06db8aa5c4514575b5a2dd70546dde5e7a858
 
 	$nombreVoluntarioErr = "";
 	$apellidoPaternoErr = "";
@@ -190,6 +209,7 @@ $sql = 'INSERT INTO voluntario VALUES (?,?,?,?,?,?,?,?,?,?,?)';
 	
 	
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 	if ($_SERVER["REQUEST_METHOD"]=="POST"){
 	$nombreVoluntario = trim(filter_input(INPUT_POST,"nombreVoluntario",FILTER_SANITIZE_STRING));
@@ -354,23 +374,32 @@ $sql = 'INSERT INTO voluntario VALUES (?,?,?,?,?,?,?,?,?,?,?)';
 	                    $opcion = $resQuery->fetch_assoc();
 	                    echo '<li><a href="'.$opcion['href'].'">'.$opcion['nombre'].'</a></li>';
 	                }
+=======
+                $query = 'SELECT * FROM opcionesNavegacion WHERE display = "1"';
+                $resQuery = $db->query($query);
+                //echo $resQuery->num_rows;
 
-	                $db->close();
 
-	            ?>
-            
-                <!--li><a href="eventos.html">Eventos</a></li>
-                <li><a href="acerca.html">¿Quiénes somos?</a></li>
-                <li><a href="patrocinadores.html">Patrocinadores</a></li>
-                <li><a href="donaciones.html">Donaciones</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-                <li><a href="sesion.php">Iniciar Sesión</a></li-->
+                for ($i=0; $i < $resQuery->num_rows; $i++) { 
+                    $opcion = $resQuery->fetch_assoc();
+                    echo '<li><a href="'.$opcion['href'].'">'.$opcion['nombre'].'</a></li>';
+                }
+>>>>>>> e1a06db8aa5c4514575b5a2dd70546dde5e7a858
+
+                $db->close();
+
+            ?>
+         
             </ul>
 		</nav>
 	</header>
 		<div id="pageTitle">
 			<h1 id="registroDeVoluntario">Registro de Voluntario </h1>
+<<<<<<< HEAD
 >>>>>>> 82bbadbd665cdd0a784c0949ab12e262adb9ad6d
+=======
+
+>>>>>>> e1a06db8aa5c4514575b5a2dd70546dde5e7a858
 			<br>
 			<!-- <h2 id="bienvenido">Registro de Voluntario</h2> -->
 		</div>

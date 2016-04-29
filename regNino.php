@@ -9,6 +9,133 @@
 	<link rel='stylesheet' href='css/style.css'>
 </head>
 
+<?php 
+	session_start();
+	require_once'conexion.php';
+
+	$nombresErr = "";
+	$apellidoPatErr = "";
+	$apellidoMatErr = "";
+	$fechaDeNacErr = "";
+	$discapacidadErr = "";
+	$generoErr = "";
+	$grupoErr = "";
+	
+	if ($_SERVER["REQUEST_METHOD"]=="POST"){
+	$nombres = trim(filter_input(INPUT_POST,"nombres",FILTER_SANITIZE_STRING));
+	// echo $nombrepatrocinador;
+	$apellidoPat = trim(filter_input(INPUT_POST,"apellidoPaterno",FILTER_SANITIZE_STRING));
+	$apellidoMat = trim(filter_input(INPUT_POST,"apellidoMaterno",FILTER_SANITIZE_STRING));
+	$discapacidad = trim(filter_input(INPUT_POST,"discapacidad",FILTER_SANITIZE_STRING));
+	$genero= trim(filter_input(INPUT_POST,"genero",FILTER_SANITIZE_STRING));
+	$grupo = trim(filter_input(INPUT_POST,"grupo",FILTER_SANITIZE_STRING));
+	$fechaDeNac = 	$ano.'-'.$mes.'-'.$dia;
+
+
+		}
+	
+	// $id = $nombres = $apellidoPat= $apellidoMat = $fechaDeNac= $discapacidad = $genero = $grupo ="";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+	$valid = true;
+
+  if (empty($_POST["nombres"])) {
+    $nombresErr = "Ingresa un nombre";
+    $valid = false;
+  } else {
+    $nombres = test_input($_POST["nombres"]);
+  }
+
+  if (empty($_POST["apellidoPat"])) {
+    $apellidoPaternoErr = "Ingresa un apellido";
+    $valid = false;
+  } else {
+    $apellidoPat = test_input($_POST["apellidoPat"]);
+  }
+
+    if (empty($_POST["apellidoMat"])) {
+    $apellidoMatErr = "Ingresa un apellido";
+    $valid = false;
+  } else {
+    $apellidoMat = test_input($_POST["apellidoMat"]);
+  }
+  if (empty($_POST["fechaDeNac"])) {
+    $fechaDeNacErr = "Seleccion una opcion";
+    $valid = false;
+  } else {
+    $fechaDeNac = test_input($_POST["fechaDeNac"]);
+  }
+
+    if (empty($_POST["discapacidad"])) {
+    $discapacidadErr = "Seleccion una discapacidad";
+    $valid = false;
+  } else {
+    $discapacidad = test_input($_POST["discapacidad"]);
+  }
+
+  if (empty($_POST["genero"])) {
+    $generoErr = "Selecciona un genero";
+    $valid = false;
+  } else {
+    $genero= test_input($_POST["genero"]);
+  }
+
+    if (empty($_POST["grupo"])) {
+    $grupoErr = "Selecciona un grupo";
+    $valid = false;
+  } else {
+    $grupo= test_input($_POST["grupo"]);
+  }
+
+
+$discapacidades = array('--Selecciona una--','Down', 'Ceguera','Silente','Autismo');
+$selected_key = $_POST['discapacidad'];
+$selected_value = $discapacidades[$_POST['discapacidad']];
+
+$generos = array('--Selecciona uno--','Femenino', 'Masculino');
+$selected_key = $_POST['genero'];
+$selected_value = $generos[$_POST['genero']];  
+
+  
+  if($valid){
+	header("Location: registrarExitoso.php");
+	exit();
+}
+
+}
+
+
+function test_input($data) {
+   $data = trim($data);
+   $data = stripslashes($data);
+   $data = htmlspecialchars($data);
+   return $data;
+}
+
+$sql = 'INSERT INTO nino (nombres,apellidoPat, apellidoMat, fechaDeNac,discapacidad, genero, grupo) VALUES (?,?,?,?,?,?,?)';
+		$prep_query= $db->prepare($sql);
+		$prep_query->bind_param('sssisss',$nombres, $apellidoPat, $apellidoMat, $fechaDeNac,$discapacidad, $genero, $grupo);
+		$prep_query->execute();
+		// $prep_query->bind_result($passwordInput);
+		$prep_query->fetch();
+
+		// Para checar si el log in es exitoso
+		// $result = mysql_query("SELECT * FROM patrocinador WHERE matricula='$matricula' AND nombres='$nombrepatrocinador'
+		// 	AND apellidoPat='$apellidoPaterno' AND apellidoMat = '$apellidoMaterno' AND fechaDeNac ='$fechaDeNac' AND email='$email'
+		// 	AND celular='$celular' AND escolaridad='$carrera' AND semestre = '$semestre' AND talla='$talla' AND telefono='$telefono' ");
+		// $prueba = mysql_num_rows($result); 
+		// if($prueba == 1){
+		// 	echo "Haz sido registrado";
+		// }
+		
+		// printf('%s es la contraseña ingresada', $password);
+		$prep_query->close();
+		// $db->close();
+ 
+
+
+?>
+
 <body>
 	<header>
 		<nav>
@@ -60,14 +187,14 @@
 
 		<div class='mainContent'>
 			<div class='registroForm container col-xs-6'>
-				<form action="php/registroNino.php"  role="form">
+				<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?> " role="form">
 					<div class="container col-xs-12">
 					<!-- <h3 class="error"> <?php echo $nombreVoluntarioErr;?></h3> -->
-						<label for="nombreNino">Nombre(s): </label>
+						<label for="nombres">Nombre(s):</label>
 						<br>
-						<input id="nombresNino" name="nombreNino" <?php if (isset($_POST['nombreNino'])) echo 'value="'.$_POST['nombreNino'].'"';?> class="form-control" type="text" placeholder="i.e. Juan Ricardo"
-						value= "<?php echo htmlspecialchars($nombreNino);?>">
-						<span class="error"><?php echo $nombreNinoErr;?></span>
+						<input id="nombres" name="nombres" <?php if (isset($_POST['nombres'])) echo 'value="'.$_POST['nombres'].'"';?> class="form-control" type="text" placeholder="i.e. Juan Ricardo"
+						value= "<?php echo htmlspecialchars($nombres);?>">
+						<span class="error"><?php echo $nombresErr;?></span>
 						<br><br>
 					</div>
 
@@ -75,9 +202,10 @@
 					<!-- <h3 class="error"> <?php echo $apellidoPaternoErr;?></h3> -->
 						<label for="apellidoPaterno">Apellido Paterno: </label>
 						<br>
-						<input id="apellidoPatNino" name="apellidoPaterno" <?php if (isset($_POST['apellidoPaterno'])) echo 'value="'.$_POST['apellidoPaterno'].'"';?>  class="form-control" type="text" placeholder="i.e. Hernández"
-						value= "<?php echo htmlspecialchars($apellidoPaterno);?>">
-						<span class="error"><?php echo $apellidoPaternoErr;?></span>
+						<input id="apellidoPat" name="apellidoPat" <?php if (isset($_POST['apellidoPat'])) echo 'value="'.$_POST['apellidoPat'].'"';?>  class="form-control" type="text" 
+						placeholder="i.e. Hernández"
+						value= "<?php echo htmlspecialchars($apellidoPat);?>">
+						<span class="error"><?php echo $apellidoPatErr;?></span>
 						<br><br>
 					</div>
 
@@ -85,9 +213,10 @@
 					<!-- <h3 class="error"> <?php echo $apellidoMaternoErr;?></h3> -->
 						<label for="apellidoMaterno">Apellido Materno: </label>
 						<br>
-						<input id="apellidoMatNino" name="apellidoMaterno" <?php if (isset($_POST['apellidoMaterno'])) echo 'value="'.$_POST['apellidoMaterno'].'"';?>  class="form-control" type="text" placeholder="i.e. López"
-						value= "<?php echo htmlspecialchars($apellidoMaterno);?>">
-						<span class="error"><?php echo $apellidoMaternoErr;?></span>
+						<input id="apellidoMat" name="apellidoMat" <?php if (isset($_POST['apellidoMat'])) echo 'value="'.$_POST['apellidoMat'].'"';?>  class="form-control"
+						 type="text" placeholder="i.e. López"
+						value= "<?php echo htmlspecialchars($apellidoMat);?>">
+						<span class="error"><?php echo $apellidoMatErr;?></span>
 						<br><br>
 					</div>
 
@@ -95,7 +224,7 @@
 				
 					<div class="container col-xs-12">
 					<!-- 	<h3 class="error"> <?php echo $fechaDeNacErr;?></h3> -->
-						<label for="fechaNac">Fecha de Nacimiento: </label>
+						<label for="fechaDeNac">Fecha de Nacimiento: </label>
 						<br>
 
 						<div class="container col-xs-4">
@@ -144,8 +273,8 @@
 						<br>
 
 						<div class="container col-xs-4">
-							<select>
-								<option value="-" selected>--Seleccione una--</option>
+							<select input type="text"  id="discapacidad"name="discapacidad" maxlength = "10" value="<?php echo $_SESSION['discapacidad'] ?>">
+								<option value="0" >--Seleccione una--</option>
 								<option value="1">Down</option>
 								<option value="2">Ceguera</option>
 								<option value="3">Silente</option>
@@ -153,24 +282,40 @@
 							</select>
 						</div>
 						<br>
-						<span class="error"><?php echo $fechaDeNacErr;?></span>
+						<span class="error"><?php echo $discapacidadErr;?></span>
 					</div>	
+
 
 					<div class="container col-xs-12">
 					<!-- 	<h3 class="error"> <?php echo $fechaDeNacErr;?></h3> -->
-						<label for="genero">Género: </label>
+						<label for="genero">Género:</label>
 						<br>
 
 						<div class="container col-xs-4">
-							<select>
+							<select id="genero" name="genero" maxlength = "10" value="<?php echo $_SESSION['genero'] ?>">
 								<option value="-" selected>--Seleccione uno--</option>
 								<option value="f">Femenino</option>
 								<option value="m">Masculino</option>
 							</select>
 						</div>
 						<br>
-						<span class="error"><?php echo $fechaDeNacErr;?></span>
+						<span class="error"><?php echo $generoErr;?></span>
 					</div>	
+
+
+
+			
+
+						<div class="container col-xs-12">
+					<!-- <h3 class="error"> <?php echo $apellidoPaternoErr;?></h3> -->
+						<label for="grupo">Grupo:</label>
+						<br>
+						<input id="grupo" name="grupo" <?php if (isset($_POST['grupo'])) echo 'value="'.$_POST['grupo'].'"';?>  class="form-control" type="text" 
+						placeholder="i.e. Hernández"
+						value= "<?php echo htmlspecialchars($grupo);?>">
+						<span class="error"><?php echo $grupoErr;?></span>
+						<br><br>
+					</div>
 
 					<div id="buttonDiv"><button class="btn btn-primary" type="submit">Registrar Niño</button></div>
 				</form>
