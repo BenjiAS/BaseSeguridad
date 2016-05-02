@@ -1,19 +1,18 @@
 
 CREATE TABLE voluntario(
-	matricula varchar(10) NOT NULL,
+    matricula varchar(10) NOT NULL,
     nombres varchar (30) NOT NULL,
     apellidoPat varchar (20) NOT NULL,
-    apellidoMat varchar (20),
-	fechaDeNac date NOT NULL,
-	email varchar (100) NOT NULL,
-	celular char (10),
+    apellidoMat varchar (20) NOT NULL,
+    fechaDeNac date NOT NULL,
+    email varchar (100) NOT NULL,
+    celular char (10),
     telefono int,
     escolaridad varchar (5) NOT NULL,
-    semestre char(1),
-    talla varchar(3),
-	CONSTRAINT voluntario_pk PRIMARY KEY (matricula)
+    semestre char(1) NOT NULL,
+    talla varchar(3) NOT NULL,
+    CONSTRAINT voluntario_pk PRIMARY KEY (matricula)
 );
-ALTER TABLE voluntario ADD COLUMN telefono int
 
 CREATE TABLE usuario(
     matricula varchar(10) NOT NULL,
@@ -46,27 +45,11 @@ CREATE TABLE tablaLog(
 );
 
 CREATE TABLE patrocinador (
-<<<<<<< HEAD
-nombrePatrocinador varchar(50),
-nombreContacto varchar(100),
-direccion varchar(150),
-email varchar(40),
-texto varchar(300)
-);
-
-CREATE TABLE `opcionesNavegacion` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(40) NOT NULL,
-  `href` varchar(100) NOT NULL,
-  `display` char(1) NOT NULL,
-  PRIMARY KEY (`id`)
-);
-=======
-	nombrePatrocinador varchar(50),
-	nombreContacto varchar(100),
-	direccion varchar(150),
-	email varchar(40),
-	texto varchar(300)
+    nombrePatrocinador varchar(50) NOT NULL,
+    nombreContacto varchar(100) NOT NULL,
+    direccion varchar(150) NOT NULL,
+    email varchar(40) NOT NULL,
+    texto varchar(300) NOT NULL 
 );
 
 CREATE TABLE opcionesNavegacion (
@@ -81,8 +64,27 @@ CREATE TABLE opcionesAdministracion (
 	id int(11) NOT NULL AUTO_INCREMENT,
 	nombre varchar(40) NOT NULL,
 	href varchar(100) NOT NULL,
-	permiso char(1) NOT NULL,
+	permiso int NOT NULL,
 	PRIMARY KEY (id)
+);
+
+CREATE TABLE institucion (
+    id int(11) PRIMARY KEY NOT NULL, 
+    nombre varchar(40) NOT NULL, 
+    direccion varchar(50) NOT NULL, 
+    contacto varchar(40) NOT NULL, 
+    telefono varchar(10)
+);
+
+CREATE TABLE nino(
+    id int(11) PRIMARY KEY NOT NULL, 
+    nombre varchar(30) NOT NULL, 
+    apellidoPat varchar(30) NOT NULL, 
+    apellidoMat varchar(30) NOT NULL, 
+    fechaDeNac date, 
+    discapacidad varchar(20) NOT NULL, 
+    genero varchar(40) NOT NULL, 
+    telefono varchar(10) 
 );
 
 
@@ -91,4 +93,3 @@ CREATE TABLE opcionesAdministracion (
 
 
 
->>>>>>> 82bbadbd665cdd0a784c0949ab12e262adb9ad6d

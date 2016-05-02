@@ -7,7 +7,7 @@
 	}
 	//SI FUNCIONA LO DE GIT PUSH Y PULL
 	else {
-		printf('Sí se conectó');
+		//printf('Sí se conectó');
 		//echo "<br>";
 	}	
 
@@ -15,9 +15,5 @@
 	// 	printf('La seleccion devolvio %d filas. \n', $resultado->num_rows);
 	// 	$resultado->close();
 	// }
-
-	
-	
-
 
 ?>

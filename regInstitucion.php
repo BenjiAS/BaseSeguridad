@@ -102,11 +102,11 @@ $sql = 'INSERT INTO institucion (nombre, direccion, contacto, telefono) VALUES (
 ?>
 
 <body>
-	<header>
-		<nav>
-			<a href="index.php"><img class="logo" src="img/scc2.png"></a>
-            <ul class='mainMenu'>
-                 <?php
+	<header class='header'>
+        <nav>
+            <a href="index.php"><img class="logo" src="img/scc2.png"></a>
+            <ul id ='navBar' class='mainMenu'>
+             <?php
                 require_once 'conexion.php';
 
 
@@ -114,11 +114,11 @@ $sql = 'INSERT INTO institucion (nombre, direccion, contacto, telefono) VALUES (
                 $resQuery = $db->query($query);
                 //echo $resQuery->num_rows;
 
-
                 for ($i=0; $i < $resQuery->num_rows; $i++) { 
                     $opcion = $resQuery->fetch_assoc();
                     echo '<li><a href="'.$opcion['href'].'">'.$opcion['nombre'].'</a></li>';
                 }
+                
 
                 $db->close();
 
@@ -131,10 +131,10 @@ $sql = 'INSERT INTO institucion (nombre, direccion, contacto, telefono) VALUES (
                 <li><a href="contacto.html">Contacto</a></li>
                 <li><a href="sesion.php">Iniciar Sesión</a></li-->
             </ul>
-		</nav>
-	</header>
+        </nav>
+    </header>
 		<div id="pageTitle">
-			<h1 id="registroDeVoluntario">Registro de Institución</h1>
+			<h1>Registro de Institución</h1>
 			<br>
 			<!-- <h2 id="bienvenido">Registro de patrocinador</h2> -->
 		</div>
@@ -195,9 +195,7 @@ $sql = 'INSERT INTO institucion (nombre, direccion, contacto, telefono) VALUES (
 						<!-- <span class="error"><?php echo $textErr;?></span> -->
 						<br><br>
 					<div id="buttonDiv"><button class="btn btn-primary text-center" type="submit" value="submit" >Registrar</button></div>
-					<?php 
-						include "registrarExitoso.php";
-					?>
+					
 				</form>
 			</div>
 		</div>

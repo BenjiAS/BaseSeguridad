@@ -137,11 +137,11 @@ $sql = 'INSERT INTO nino (nombres,apellidoPat, apellidoMat, fechaDeNac,discapaci
 ?>
 
 <body>
-	<header>
-		<nav>
-			<a href="index.php"><img class="logo" src="img/scc2.png"></a>
-            <ul class='mainMenu'>
-                 <?php
+	<header class='header'>
+        <nav>
+            <a href="index.php"><img class="logo" src="img/scc2.png"></a>
+            <ul id ='navBar' class='mainMenu'>
+             <?php
                 require_once 'conexion.php';
 
 
@@ -149,11 +149,11 @@ $sql = 'INSERT INTO nino (nombres,apellidoPat, apellidoMat, fechaDeNac,discapaci
                 $resQuery = $db->query($query);
                 //echo $resQuery->num_rows;
 
-
                 for ($i=0; $i < $resQuery->num_rows; $i++) { 
                     $opcion = $resQuery->fetch_assoc();
                     echo '<li><a href="'.$opcion['href'].'">'.$opcion['nombre'].'</a></li>';
                 }
+                
 
                 $db->close();
 
@@ -166,8 +166,8 @@ $sql = 'INSERT INTO nino (nombres,apellidoPat, apellidoMat, fechaDeNac,discapaci
                 <li><a href="contacto.html">Contacto</a></li>
                 <li><a href="sesion.php">Iniciar Sesión</a></li-->
             </ul>
-		</nav>
-	</header>
+        </nav>
+    </header>
 
 	<div class='mainDiv'>
 

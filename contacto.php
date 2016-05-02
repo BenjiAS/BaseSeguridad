@@ -10,28 +10,27 @@
 </head>
 
 <body>
-    <header>
+    <header class='header'>
         <nav>
             <a href="index.php"><img class="logo" src="img/scc2.png"></a>
-            <ul class='mainMenu'>
-                 <?php
-                    error_reporting(E_WARNING);
-                    require_once 'conexion.php';
+            <ul id ='navBar' class='mainMenu'>
+             <?php
+                require_once 'conexion.php';
 
 
-                    $query = 'SELECT * FROM opcionesNavegacion  WHERE display = "1"';
-                    $resQuery = $db->query($query);
-                    //echo $resQuery->num_rows;
+                $query = 'SELECT * FROM opcionesNavegacion WHERE display = "1"';
+                $resQuery = $db->query($query);
+                //echo $resQuery->num_rows;
 
+                for ($i=0; $i < $resQuery->num_rows; $i++) { 
+                    $opcion = $resQuery->fetch_assoc();
+                    echo '<li><a href="'.$opcion['href'].'">'.$opcion['nombre'].'</a></li>';
+                }
+                
 
-                    for ($i=0; $i < $resQuery->num_rows; $i++) { 
-                        $opcion = $resQuery->fetch_assoc();
-                        echo '<li><a href="'.$opcion['href'].'">'.$opcion['nombre'].'</a></li>';
-                    }
+                $db->close();
 
-                    $db->close();
-
-                ?>
+            ?>
             
                 <!--li><a href="eventos.html">Eventos</a></li>
                 <li><a href="acerca.html">¿Quiénes somos?</a></li>

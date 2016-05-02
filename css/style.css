@@ -64,6 +64,22 @@ header {
     z-index: 999;
 }
 
+.header {
+	/*border: 5px solid black;*/
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	display: block;
+	box-sizing: border-box;
+	background: ;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 1.25em;
+	text-align: center;
+
+	position: relative;
+    z-index: 999;
+}
+
 div {
 	margin: 0;
 	/*display: flex;*/
